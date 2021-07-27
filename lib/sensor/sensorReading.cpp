@@ -1,13 +1,16 @@
 #include <Arduino.h>
-#include <sensorReading.h>
 #include <settings.h>
+#include <sensorReading.h>
 
-void sensorReading()
+
+void sensorReading(TFT_eSPI *pTft)
 {
     float fTemp = 24.3;
     float fHumi = 57.8;
     float fPres = SEALEVELPRESSURE_HPA;
     float fAlti = -3.57;
+
+    //pTft->printf
 
     // Temperature
     //
