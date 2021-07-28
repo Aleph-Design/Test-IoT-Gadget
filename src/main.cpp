@@ -22,6 +22,18 @@ void setup()
   // class TFT_eSPI.
   //
   pTft = new TFT_eSPI();
+  pTft->init();
+  pTft->setRotation(3);
+  pTft->setTextColor(TFT_WHITE, TFT_BLUE);
+  //pTft->loadFont();
+  pTft->fillScreen(TFT_BLUE);
+  pTft->setCursor(0, 0);
+  pTft->println("Hello...");
+  pTft->println("Start my gadget");
+
+  vTaskDelay(3000 / portTICK_PERIOD_MS);
+
+  pTft->fillScreen(TFT_BLUE);   // Clear the screen
 
 } // end setup() -------------------------------------------------------------
 

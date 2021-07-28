@@ -1,0 +1,33 @@
+Working version 001 with standard font (very small)
+===================================================
+mode:DIO, clock div:2
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5828
+entry 0x400806a8
+Temperature:   24.3 Celcius
+Humidity...:   57.8 procent
+Pressure...: 1013.0 hPa
+Altitude...:   -3.6 meter
+------------
+Temperature:   24.3 Celcius
+Humidity...:   57.8 procent
+Pressure...: 1013.0 hPa
+Altitude...:   -3.6 meter
+------------
+Temperature:   24.3 Celcius
+Humidity...:   57.8 procent
+Pressure...: 1013.0 hPa
+Altitude...:   -3.6 meter
+------------
+Temperature:   24.3 Celcius
+Humidity...:   57.8 procent
+Pressure...: 1013.0 hPa
+Altitude...:   -3.6 meter
+------------
+Temperature:   24.3 Celcius
+Humidity...:   57.8 procent
+Pressure...: 1013.0 hPa
+Altitude...:   -3.6 meter
+------------
