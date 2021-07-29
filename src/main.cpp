@@ -25,7 +25,6 @@ void setup()
   pTft->init();
   pTft->setRotation(3);
   pTft->setTextColor(TFT_WHITE, TFT_BLUE);
-  //pTft->loadFont();
   pTft->fillScreen(TFT_BLUE);
   pTft->setCursor(0, 0);
   pTft->println("Hello...");
