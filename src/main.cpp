@@ -1,11 +1,14 @@
 #include <Arduino.h>
 #include <sensorReading.h>
 
-// #include <gfxfont.h>
-// #include <Dialog_bold_18.h>
+// Include by default ALL available free fonts in directory
+// Fonts/GFXFF/...
+//
+#include <Fonts/GFXFF/gfxfont.h>
+// #include <Fonts/GFXFF/FreeSansBold12pt7b.h>  NOT needed!
+// #include <Fonts/GFXFF/FreeMono18pt7b.h>      NOT needed!
 
-#include <freeFonts.h>
-//#include <FreeMono18pt7b.h>
+
 
 // pTft is not a real global variable; it's only accessible from within the
 // functions in THIS file: NOT in ALL files of the C++ application.
@@ -35,40 +38,9 @@ void setup()
   pTft->init();
   pTft->setRotation(3);
 
-  //pTft->setFreeFont(&FreeMono18pt7b);
-  //pTft->setFreeFont(&FreeSansBold18pt7b);
+  pTft->setFreeFont(&FreeMonoBold9pt7b);        // not great, but OK ~1672 bytes
 
-  pTft->setTextColor(TFT_WHITE, TFT_BLUE);
-  pTft->fillScreen(TFT_BLUE);
-
-  // centre text around x, y position
-  //pTft->setTextDatum(TC_DATUM); 
-
-  // create a colored 'field' to display text
-  //pTft->fillRect(xPos, yPos, 200, 30, TFT_NAVY);
-  // select the font
-  // Pass the address of a GFXfont; it's a pointer just as in Adafruit_GFX.h
-  // void setFont(const GFXfont *f = NULL);
-  pTft->setFreeFont(&FreeSansBold12pt7b);    // not great, but readable ~2858 bytes
-  // pTft->setFreeFont(&FreeMono18pt7b);        // not great, but OK
-  // pTft->setFreeFont(&FreeSansBold18pt7b);    // NOT working at all ~5175 bytes
-  
-  // draw text in the selected GFX font
-  pTft->drawString("Hello...", xPos, yPos, GFXFF);
-  // Get the font height and move ypos down
-  yPos += pTft->fontHeight(GFXFF); 
-  // ===========================================
-
-  // create a colored 'field' to display text
-  //pTft->fillRect(xPos, yPos, 200, 30, TFT_CYAN);
-  // select the font
-  //pTft->setFreeFont(&FreeSansBold12pt7b);
-  // draw text in the selected GFX Free Font
-  pTft->drawString("Start my gadget", xPos, yPos, GFXFF);
-  // Get the font height and move ypos down
-  //ypos += pTft->fontHeight(GFXFF); 
-
-  vTaskDelay(3000 / portTICK_PERIOD_MS);
+  vTaskDelay(1000 / portTICK_PERIOD_MS);
 
   //pTft->fillScreen(TFT_BLUE);   // Clear the screen
 
@@ -77,28 +49,7 @@ void setup()
 
 void loop() 
 {
-  // xPos centered on the screen width
-  xPos = 5; //pTft->width() / 2;
-  // yPos just some value away from screen top
-  yPos = 50;  
-
-  pTft->setTextColor(TFT_WHITE, TFT_BLUE);
-  pTft->fillScreen(TFT_BLUE);
-
-  // draw text in the selected GFX font
-  pTft->drawString("Hello...", xPos, yPos, GFXFF);
-  // Get the font height and move ypos down
-  yPos += pTft->fontHeight(GFXFF); 
-  // ===========================================
-
-  // create a colored 'field' to display text
-  //pTft->fillRect(xPos, yPos, 200, 30, TFT_CYAN);
-  // select the font
-  //pTft->setFreeFont(&FreeSansBold12pt7b);
-  // draw text in the selected GFX Free Font
-  pTft->drawString("Start my gadget", xPos, yPos, GFXFF);
-  // Get the font height and move ypos down
-  //ypos += pTft->fontHeight(GFXFF); 
+  sensorReading(pTft);
 
   vTaskDelay(6000 / portTICK_PERIOD_MS);
 
